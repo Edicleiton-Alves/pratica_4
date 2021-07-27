@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
 const bodyparser = require('body-parser');
 const router = require("./src/routes/carro-route");
 
