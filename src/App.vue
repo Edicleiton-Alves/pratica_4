@@ -52,9 +52,9 @@ export default{
       });
     },
     buscarCar: function(){
-      axios.get(this.baseURI + "/" + this.id).then((result) =>{
+      axios.get(this.baseURI + this.id).then((result) =>{
         console.log(result);
-        this.posts = result.data;
+        this.carro = result.data;
       });
     },
     postCar: function(){
@@ -70,7 +70,7 @@ export default{
       });
     },
     putCar: function(){
-      axios.put(this.baseURI + "/" + this.id, {
+      axios.put(this.baseURI + this.id, {
         name: this.name,
         marca: this.branda,
         fabricacao: this.fabricacao,
@@ -79,11 +79,11 @@ export default{
       })
       .then((result) =>{
         console.log(result);
-        this.posts = result.data;   
+        this.carro = result.data;   
       });
     },
     deleteCar: function() {
-      axios.delete(this.baseURI + "/" + this.id).then((result) =>{
+      axios.delete(this.baseURI + this.id).then((result) =>{
         console.log(result);
       });
     },
