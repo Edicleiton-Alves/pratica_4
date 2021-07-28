@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const controller = require("../controller/carro-controller");
 
 router.get("/", controller.get);

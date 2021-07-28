@@ -2,21 +2,11 @@ class CarroService {
     constructor() {
       this.carros = [];
       this.id = 0;
-      this.name = "";
-      this.brand = "";
-      this.model = 0;
-      this.fabricacao = 0;
-      this.dateSale = "";
     }
   
     add(carro) {
       this.id++;
       carro.id = this.id;
-      carro.name = this.name;
-      carro.brand = this.brand;
-      carro.model = this.model;
-      carro.fabricacao = this.fabricacao;
-      carro.dateSale = this.dateSale;
       this.carros.push(carro);
     }
   
