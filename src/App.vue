@@ -1,10 +1,10 @@
 <template>
   Id: <input type="text" name="" id="0" v-model="id" /><br />
   Nome: <input type="text" name="" id="1" v-model="name" /><br />
-  Marca: <input type="text" name="" id="2" v-model="branda" /><br />
-  Ano de Fabricação: <input type="text" name="" id="3" v-model="fabricacao" /><br />
-  Ano de Modelo: <input type="text" name="" id="4" v-model="model" /><br />
-  Data de Venda: <input type="text" name="" id="5" v-model="dateSale" /><br />
+  Marca: <input type="text" name="" id="2" v-model="marca" /><br />
+  Ano de Fabricação: <input type="date" name="" id="3" v-model="fabricacao" /><br />
+  Ano de Modelo: <input type="date" name="" id="4" v-model="model" /><br />
+  Data de Venda: <input type="date" name="" id="5" v-model="dataVenda" /><br />
   
   {{ carro }} <br />
 
@@ -18,10 +18,10 @@
     <li v-for="carro in carros" :key="carro.id">
       Id: {{carro.id}}<br />
       Nome: {{carro.name}}<br />
-      Marca: {{carro.branda}}<br />
+      Marca: {{carro.marca}}<br />
       Ano de Fabricação: {{carro.fabricacao}}<br />
       Ano de Modelo:{{carro.model}}<br />
-      Data de Venda:{{carro.dateSale}}<br />
+      Data de Venda:{{carro.dataVenda}}<br />
     </li>
   </ul>
 </template>
@@ -46,44 +46,44 @@ export default{
   },
   methods: {
     getCar: function(){
-      axios.get(this.baseURI).then((result) =>{
+      axios.get(this.baseURI + this.id).then((result) =>{
         console.log(result);
         this.carros = result.data;
       });
     },
     buscarCar: function(){
-      axios.get(this.baseURI + "/" + this.id).then((result) =>{
+      axios.get(this.baseURI + this.id).then((result) =>{
         console.log(result);
-        this.posts = result.data;
+        this.carro = result.data;
       });
     },
     postCar: function(){
       axios.post(this.baseURI, {
         name: this.name,
-        marca: this.branda,
+        marca: this.marca,
         fabricacao: this.fabricacao,
         model: this.model,
-        dataVenda: this.dateSale,
+        dataVenda: this.dataVenda,
       })
       .then((result) =>{
         console.log(result);
       });
     },
     putCar: function(){
-      axios.put(this.baseURI + "/" + this.id, {
+      axios.put(this.baseURI + this.id, {
         name: this.name,
-        marca: this.branda,
+        marca: this.marca,
         fabricacao: this.fabricacao,
         model: this.model,
-        dataVenda: this.dateSale,
+        dataVenda: this.dataVenda,
       })
       .then((result) =>{
         console.log(result);
-        this.posts = result.data;   
+        this.carro = result.data;   
       });
     },
     deleteCar: function() {
-      axios.delete(this.baseURI + "/" + this.id).then((result) =>{
+      axios.delete(this.baseURI + this.id).then((result) =>{
         console.log(result);
       });
     },

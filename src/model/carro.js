@@ -1,10 +1,10 @@
 class Carro {
-    constructor(name, branda, model, fabricacao, dateSale) {
+    constructor(name, marca, model, fabricacao, dataVenda) {
         this.name = name;
-        this.branda = branda;
+        this.marca = marca;
         this.model = model;
         this.fabricacao = fabricacao;
-        this.dateSale = dateSale;
+        this.dataVenda = dataVenda;
     }
   }
   
