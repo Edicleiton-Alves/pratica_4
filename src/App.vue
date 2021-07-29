@@ -13,6 +13,7 @@
   <button @click="buscarCar">Busca pelo Id</button>
   <button @click="putCar">Atualizar Carro</button>
   <button @click="deleteCar">Deletar</button>
+  <button @click="buscarMarca">Buscar por marca</button>
 
   <ul>
     <li v-for="carro in carros" :key="carro.id">
@@ -36,6 +37,7 @@ export default{
     id: "",
     name: "",
     marca: "",
+    marcas: [],
     fabricacao: "",
     model: "",
     dataVenda: "",
@@ -85,6 +87,13 @@ export default{
     deleteCar: function() {
       axios.delete(this.baseURI + this.id).then((result) =>{
         console.log(result);
+      });
+    },
+
+    buscarMarca: function() {
+      axios.get(this.baseURI + this.marca).then((result) =>{
+        console.log(result);
+        this.carro = result.data;
       });
     },
   },

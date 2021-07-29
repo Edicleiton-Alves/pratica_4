@@ -10,7 +10,7 @@ exports.getById = (req, res) => {
   res.json(carroService.getById(req.params.id));
 };
 
-exports.post = (req, res) => {
+exports.post = (  req, res) => {
   res.json(carroService.add(new Carro(req.body.name, req.body.marca, req.body.model, req.body.fabricacao, req.body.dataVenda)));
 };
 
@@ -22,6 +22,11 @@ exports.put = (req, res) => {
     )
   );
 };
+
+exports.getByMarca = (req, res) => {
+  res.json(carroService.getByMarca(req.query.marca));
+  };
+  
 
 exports.delete = (req, res) => {
   res.json(carroService.delete(req.params.id));

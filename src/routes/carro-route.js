@@ -3,6 +3,7 @@ const router = express.Router();
 const controller = require("../controller/carro-controller");
 
 router.get("/", controller.get);
+router.getByMarca("/:marca", controller.getByMarca);
 router.get("/:id", controller.getById);
 router.post("/", controller.post);
 router.put("/:id", controller.put);

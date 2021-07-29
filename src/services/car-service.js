@@ -17,6 +17,12 @@ class CarroService {
     getById(id) {
       return this.carros.find((carro) => carro.id == id);
     }
+
+    getByMarca(marca){
+      return this.carros.filter(function (el) {
+        return el.marca == marca;
+      });
+    }
   
     update(id, carro) {
       this.carros.forEach(function (e) {
@@ -24,15 +30,17 @@ class CarroService {
           for (var i in carro) {
             e[i] = carro[i];
           }
-        }
+        } 
       });
     }
   
     delete(id) {
-      this.carros = this.carros.filter(function (el) {
+      return this.carros.filter(function (el) {
         return el.id != id;
       });
     }
-  }
+
+    
+}
   
   module.exports = CarroService;
