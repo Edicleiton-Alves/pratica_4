@@ -48,7 +48,7 @@ export default{
   },
   methods: {
     getCar: function(){
-      axios.get(this.baseURI + this.id).then((result) =>{
+      axios.get(this.baseURI).then((result) =>{
         console.log(result);
         this.carros = result.data;
       });
